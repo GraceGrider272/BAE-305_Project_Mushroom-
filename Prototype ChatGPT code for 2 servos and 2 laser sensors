@@ -1,0 +1,91 @@
+#include <Wire.h>
+#include <Servo.h>
+#include <Adafruit_VL53L0X.h>
+
+Servo servo1;
+Servo servo2;
+
+Adafruit_VL53L0X lox1 = Adafruit_VL53L0X();
+Adafruit_VL53L0X lox2 = Adafruit_VL53L0X();
+
+#define XSHUT1 2
+#define XSHUT2 3
+
+int servoPin1 = 9;
+int servoPin2 = 10;
+
+int openAngle = 90;
+int closedAngle = 0;
+
+void setup() {
+
+  Serial.begin(9600);
+  Wire.begin();
+
+  servo1.attach(servoPin1);
+  servo2.attach(servoPin2);
+
+  servo1.write(closedAngle);
+  servo2.write(closedAngle);
+
+  pinMode(XSHUT1, OUTPUT);
+  pinMode(XSHUT2, OUTPUT);
+
+  digitalWrite(XSHUT1, LOW);
+  digitalWrite(XSHUT2, LOW);
+  delay(10);
+
+  // Start first sensor
+  digitalWrite(XSHUT1, HIGH);
+  delay(10);
+  if (!lox1.begin(0x30)) {
+    Serial.println("Sensor 1 failed");
+    while (1);
+  }
+
+  // Start second sensor
+  digitalWrite(XSHUT2, HIGH);
+  delay(10);
+  if (!lox2.begin(0x31)) {
+    Serial.println("Sensor 2 failed");
+    while (1);
+  }
+
+  Serial.println("Both sensors ready");
+}
+
+void loop() {
+
+  VL53L0X_RangingMeasurementData_t measure1;
+  VL53L0X_RangingMeasurementData_t measure2;
+
+  lox1.rangingTest(&measure1, false);
+  lox2.rangingTest(&measure2, false);
+
+  int distance1 = measure1.RangeMilliMeter / 10;
+  int distance2 = measure2.RangeMilliMeter / 10;
+
+  Serial.print("Sensor1: ");
+  Serial.print(distance1);
+  Serial.print(" cm   ");
+
+  Serial.print("Sensor2: ");
+  Serial.print(distance2);
+  Serial.println(" cm");
+
+  // Servo 1 control
+  if (distance1 < 50) {
+    servo1.write(openAngle);
+  } else {
+    servo1.write(closedAngle);
+  }
+
+  // Servo 2 control
+  if (distance2 < 50) {
+    servo2.write(openAngle);
+  } else {
+    servo2.write(closedAngle);
+  }
+
+  delay(100);
+}
