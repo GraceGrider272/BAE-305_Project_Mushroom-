@@ -1,0 +1,98 @@
+// Loads external libraries
+#include <Wire.h>
+#include <Servo.h>
+#include <Adafruit_VL53L0X.h>
+
+Servo servo1;
+Servo servo2;
+
+// Initializes laser sensors
+Adafruit_VL53L0X sensor1 = Adafruit_VL53L0X();
+Adafruit_VL53L0X sensor2 = Adafruit_VL53L0X();
+
+#define BUTTON1_PIN 7   // 20 second button
+#define BUTTON2_PIN 6   // 10 second button
+
+#define SERVO1_PIN 9
+#define SERVO2_PIN 10
+
+// Initialization
+void setup() {
+
+  Serial.begin(9600);
+
+  servo1.attach(SERVO1_PIN);
+  servo2.attach(SERVO2_PIN);
+
+  servo1.write(0);
+  servo2.write(0);
+
+  pinMode(BUTTON1_PIN, INPUT_PULLUP);
+  pinMode(BUTTON2_PIN, INPUT_PULLUP);
+
+  Wire.begin();
+
+  sensor1.begin(0x30);
+  sensor2.begin(0x31);
+
+  Serial.println("System Ready");
+}
+
+// This is the loop that continues to run
+void loop() {
+
+  // -------- Check hopper levels --------
+
+  VL53L0X_RangingMeasurementData_t measure1;
+  VL53L0X_RangingMeasurementData_t measure2;
+
+  sensor1.rangingTest(&measure1, false);
+  sensor2.rangingTest(&measure2, false);
+
+  int distance1 = measure1.RangeMilliMeter / 10;
+  int distance2 = measure2.RangeMilliMeter / 10;
+
+  if (distance1 > 50) {
+    Serial.println("Hopper 1 needs refilled!");
+  }
+
+  if (distance2 > 50) {
+    Serial.println("Hopper 2 needs refilled!");
+  }
+
+  // -------- Button 1 (20 seconds) --------
+
+  if (digitalRead(BUTTON1_PIN) == LOW) {
+
+    Serial.println("Servos rotating for 20 seconds");
+
+    servo1.write(90);
+    servo2.write(90);
+
+    delay(20000);
+
+    servo1.write(0);
+    servo2.write(0);
+
+    Serial.println("Servos returned");
+  }
+
+  // -------- Button 2 (10 seconds) --------
+
+  if (digitalRead(BUTTON2_PIN) == LOW) {
+
+    Serial.println("Servos rotating for 10 seconds");
+
+    servo1.write(90);
+    servo2.write(90);
+
+    delay(10000);
+
+    servo1.write(0);
+    servo2.write(0);
+
+    Serial.println("Servos returned");
+  }
+
+  delay(500);
+}
