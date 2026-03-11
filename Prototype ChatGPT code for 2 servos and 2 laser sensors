@@ -1,3 +1,4 @@
+// Load external libraries
 #include <Wire.h>
 #include <Servo.h>
 #include <Adafruit_VL53L0X.h>
@@ -5,11 +6,12 @@
 Servo servo1;
 Servo servo2;
 
-Adafruit_VL53L0X lox1 = Adafruit_VL53L0X();
+Adafruit_VL53L0X lox1 = Adafruit_VL53L0X();      // Edit this to suit our specific needs
 Adafruit_VL53L0X lox2 = Adafruit_VL53L0X();
 
-#define XSHUT1 2
-#define XSHUT2 3
+// Creates a constant name for this value
+#define ServoControl1 2 // Connects to pin 2
+#define ServoControl2 3 // Connects to pin 3
 
 int servoPin1 = 9;
 int servoPin2 = 10;
@@ -17,7 +19,7 @@ int servoPin2 = 10;
 int openAngle = 90;
 int closedAngle = 0;
 
-void setup() {
+void setup() { // Initialization
 
   Serial.begin(9600);
   Wire.begin();
@@ -28,15 +30,15 @@ void setup() {
   servo1.write(closedAngle);
   servo2.write(closedAngle);
 
-  pinMode(XSHUT1, OUTPUT);
-  pinMode(XSHUT2, OUTPUT);
+  pinMode(ServoControl1, OUTPUT);  // Connects to pins
+  pinMode(ServoControl2, OUTPUT);
 
-  digitalWrite(XSHUT1, LOW);
-  digitalWrite(XSHUT2, LOW);
+  digitalWrite(ServoControl1, LOW);  // Connects to power
+  digitalWrite(ServoControl2, LOW);
   delay(10);
 
   // Start first sensor
-  digitalWrite(XSHUT1, HIGH);
+  digitalWrite(ServoControl1, HIGH);
   delay(10);
   if (!lox1.begin(0x30)) {
     Serial.println("Sensor 1 failed");
@@ -44,7 +46,7 @@ void setup() {
   }
 
   // Start second sensor
-  digitalWrite(XSHUT2, HIGH);
+  digitalWrite(ServoControl2, HIGH);
   delay(10);
   if (!lox2.begin(0x31)) {
     Serial.println("Sensor 2 failed");
@@ -54,9 +56,9 @@ void setup() {
   Serial.println("Both sensors ready");
 }
 
-void loop() {
+void loop() {    // Loop of measuring data starts
 
-  VL53L0X_RangingMeasurementData_t measure1;
+  VL53L0X_RangingMeasurementData_t measure1;  // Again, can change this sensor name later
   VL53L0X_RangingMeasurementData_t measure2;
 
   lox1.rangingTest(&measure1, false);
@@ -73,14 +75,14 @@ void loop() {
   Serial.print(distance2);
   Serial.println(" cm");
 
-  // Servo 1 control
+  // Servo 1: Controls open/ close
   if (distance1 < 50) {
     servo1.write(openAngle);
   } else {
     servo1.write(closedAngle);
   }
 
-  // Servo 2 control
+  // Servo 2: Controls open/ close
   if (distance2 < 50) {
     servo2.write(openAngle);
   } else {
