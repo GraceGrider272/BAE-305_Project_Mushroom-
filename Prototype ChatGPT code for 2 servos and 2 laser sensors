@@ -1,93 +1,134 @@
-// Load external libraries
+
+```cpp
 #include <Wire.h>
 #include <Servo.h>
 #include <Adafruit_VL53L0X.h>
 
 Servo servo1;
 Servo servo2;
+Adafruit_VL53L0X lox1 = Adafruit_VL53L0X();
 
-Adafruit_VL53L0X lox1 = Adafruit_VL53L0X();      // Edit this to suit our specific needs
-Adafruit_VL53L0X lox2 = Adafruit_VL53L0X();
-
-// Creates a constant name for this value
-#define ServoControl1 2 // Connects to pin 2
-#define ServoControl2 3 // Connects to pin 3
+#define ServoControl1 2
 
 int servoPin1 = 9;
 int servoPin2 = 10;
-
-int openAngle = 90;
+int activeAngle = 45;
 int closedAngle = 0;
 
-void setup() { // Initialization
+unsigned long servo1StartTime = 0;
+bool servo1IsActive = false;
+long servo1Duration = 10000;
 
+unsigned long servo2StartTime = 0;
+bool servo2IsActive = false;
+long servo2Duration = 10000;
+
+bool modeSelected = false;
+bool sequenceStarted = false;
+bool refillPrinted = false;
+
+void setup() {
   Serial.begin(9600);
   Wire.begin();
 
   servo1.attach(servoPin1);
   servo2.attach(servoPin2);
-
   servo1.write(closedAngle);
   servo2.write(closedAngle);
 
-  pinMode(ServoControl1, OUTPUT);  // Connects to pins
-  pinMode(ServoControl2, OUTPUT);
-
-  digitalWrite(ServoControl1, LOW);  // Connects to power
-  digitalWrite(ServoControl2, LOW);
-  delay(10);
-
-  // Start first sensor
+  pinMode(ServoControl1, OUTPUT);
   digitalWrite(ServoControl1, HIGH);
   delay(10);
+
   if (!lox1.begin(0x30)) {
-    Serial.println("Sensor 1 failed");
+    Serial.println("Sensor 1 fail!");
     while (1);
   }
 
-  // Start second sensor
-  digitalWrite(ServoControl2, HIGH);
-  delay(10);
-  if (!lox2.begin(0x31)) {
-    Serial.println("Sensor 2 failed");
-    while (1);
-  }
+  // --- NEW SENSITIVITY FIX ---
+  // Increase timing budget to 200ms (standard is 33ms). 
+  // This allows the sensor to detect dark/non-reflective objects much better.
+  lox1.setMeasurementTimingBudgetMicroSeconds(200000); 
 
-  Serial.println("Both sensors ready");
+  displayMenu();
 }
 
-void loop() {    // Loop of measuring data starts
+void loop() {
+  unsigned long currentMillis = millis();
 
-  VL53L0X_RangingMeasurementData_t measure1;  // Again, can change this sensor name later
-  VL53L0X_RangingMeasurementData_t measure2;
+  if (!modeSelected) {
+    if (Serial.available() > 0) {
+      char choice = Serial.read();
+      handleMenu(choice);
+    }
+  } 
+  else if (modeSelected && !sequenceStarted) {
+    VL53L0X_RangingMeasurementData_t measure1;
+    lox1.rangingTest(&measure1, false);
 
-  lox1.rangingTest(&measure1, false);
-  lox2.rangingTest(&measure2, false);
+    int dist1 = measure1.RangeMilliMeter / 10;
 
-  int distance1 = measure1.RangeMilliMeter / 10;
-  int distance2 = measure2.RangeMilliMeter / 10;
+    Serial.print("Dist: "); Serial.print(dist1); Serial.print("cm | Status: "); Serial.println(measure1.RangeStatus);
 
-  Serial.print("Sensor1: ");
-  Serial.print(distance1);
-  Serial.print(" cm   ");
+    // LOGIC ADJUSTMENT:
+    // If status is 0 (Perfect) OR 1/2 (Warning but usually valid on dark surfaces)
+    if (dist1 > 0 && dist1 <= 20 && (measure1.RangeStatus == 0 || measure1.RangeStatus == 1 || measure1.RangeStatus == 2)) {
+      refillPrinted = false;
+      startSequence(currentMillis);
+    } 
+    else if (dist1 > 20 || dist1 == 0 || measure1.RangeStatus == 4) {
+      if (!refillPrinted) {
+        Serial.println(">>> REFILL REQUIRED.");
+        refillPrinted = true;
+      }
+    }
+  }
 
-  Serial.print("Sensor2: ");
-  Serial.print(distance2);
-  Serial.println(" cm");
-
-  // Servo 1: Controls open/ close
-  if (distance1 < 50) {
-    servo1.write(openAngle);
-  } else {
+  if (servo1IsActive && (currentMillis - servo1StartTime >= servo1Duration)) {
     servo1.write(closedAngle);
+    servo1IsActive = false;
+    checkIfBothFinished();
   }
 
-  // Servo 2: Controls open/ close
-  if (distance2 < 50) {
-    servo2.write(openAngle);
-  } else {
+  if (servo2IsActive && (currentMillis - servo2StartTime >= servo2Duration)) {
     servo2.write(closedAngle);
+    servo2IsActive = false;
+    checkIfBothFinished();
   }
-
-  delay(100);
 }
+
+void displayMenu() {
+  Serial.println("\n--- MODE SELECT ---");
+  Serial.println("1: 50/50 | 2: 66/33 | 3: 33/66");
+}
+
+void handleMenu(char choice) {
+  if (choice == '1' || choice == '2' || choice == '3') {
+    if (choice == '1') { servo1Duration = 10000; servo2Duration = 10000; }
+    else if (choice == '2') { servo1Duration = 10000; servo2Duration = 5000; }
+    else if (choice == '3') { servo1Duration = 5000; servo2Duration = 10000; }
+    Serial.println("Armed.");
+    modeSelected = true;
+    refillPrinted = false;
+  }
+}
+
+void startSequence(unsigned long now) {
+  Serial.println("Triggered!");
+  servo1.write(activeAngle);
+  servo2.write(activeAngle);
+  servo1StartTime = now;
+  servo2StartTime = now;
+  servo1IsActive = true;
+  servo2IsActive = true;
+  sequenceStarted = true;
+}
+
+void checkIfBothFinished() {
+  if (!servo1IsActive && !servo2IsActive && sequenceStarted) {
+    modeSelected = false;
+    sequenceStarted = false;
+    displayMenu();
+  }
+}
+```
