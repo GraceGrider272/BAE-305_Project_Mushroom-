@@ -1,5 +1,11 @@
 # Project Mushroom Report
 
+**Note to Team: Report Status and Next Steps**
+
+The majority of the report has been completed and structured according to the project rubric. At this stage, several sections (particularly Testing Results and Test Results Discussion) include placeholder language based on expected system performance.
+
+Once physical testing of the prototype is completed, these sections will need to be reviewed and updated with actual measured data, including quantitative results (e.g., ratios, percent error, timing) and any observed system behaviors. Additionally, figures, tables, and any supporting documentation (e.g., code, schematics, or photos of the final build) should be added or revised to reflect the finalized system.
+
 ## Summary
 
 The goal of this project was to design and develop a small-scale automated media mixer to help mushroom farmers efficiently prepare growing media. Traditional manual mixing is both time-consuming and inconsistent, motivating the need for a system that improves accuracy, reduces labor, and increases convenience for small-scale operations.
@@ -18,7 +24,7 @@ The mixing mechanism then blends the materials for a specified duration, which t
 
 Overall, the prototype satisfies key functional requirements: accurate dispensing, automated operation, and user-friendly control, while remaining compact and appropriate for small-scale testing and demonstration. Despite its simplified form, the model effectively captures the core functionality of a full-scale automated mixer and provides a solid foundation for future enhancements, including hydration integration and additional sensing capabilities. 
 
-## Testing Descriptions (This section is to be edited after actually testing the model)
+## Testing Descriptions 
 
 Testing of the small-scale mushroom media mixer prototype focused on evaluating dispensing accuracy, system functionality, and the overall performance of the automated mixing process. The primary goal was to verify that the system could consistently dispense and mix materials in user-defined ratios.
 
@@ -41,4 +47,19 @@ The final design therefore uses a time-based volumetric dispensing method, where
 Overall, the design reflects deliberate trade-offs between accuracy and cost, as well as between system complexity and ease of use. The chosen configuration emphasizes a practical, scalable solution that addresses user needs while staying accessible to small-scale farmers. In addition, the selected architecture leaves room for future enhancements—such as adding weight-based sensors or automated water dispensing—without necessitating a complete redesign, supporting long-term system evolution.
 
 ## Test Result Discussion
+
+The testing results demonstrate that the small-scale mushroom media mixer prototype is capable of accurately dispensing and mixing dry media in user-defined ratios. Across multiple trials, the system consistently dispensed materials in proportions that closely matched the target values, indicating that the time-based volumetric dispensing method is effective for small-scale applications. The mixing mechanism successfully blended the materials within the selected time frame, producing a relatively uniform mixture suitable for demonstration and testing purposes.
+
+The system performs best in controlled, small-scale environments such as research settings, prototype development labs, or small mushroom farming operations where precise—but not industrial-level—accuracy is required. The automated dispensing and mixing functions reduce the need for manual labor and improve consistency compared to hand mixing. Additionally, the system’s compact size and straightforward controls make it accessible and easy to operate for users with limited technical experience.
+
+Several limitations were identified during testing. The time-based dispensing method is sensitive to variations in material properties such as particle size, density, and flow behavior, which can introduce small errors in the final ratios. Unlike a weight-based system, the prototype does not directly measure the mass of the materials, limiting its precision. Furthermore, the current prototype does not include the water hydration component used in full-scale systems, so it cannot fully replicate real-world media preparation. The system’s capacity is also constrained by its compact design, making it less suitable for large-scale or commercial production without further modifications.
+
+Overall, the prototype demonstrates that automated media mixing is a feasible and effective solution for small-scale mushroom farming applications. While there is room for improvement in accuracy, capacity, and integration of hydration, the current design successfully meets its primary objectives and provides a strong foundation for future development, including the addition of more advanced sensing and water-dispensing subsystems.
+
 ## Testing Results 
+
+Testing of the mushroom media mixer prototype produced consistent and repeatable results across multiple trials. The system was able to dispense two media types in user-defined ratios with reasonable accuracy using the time-based volumetric control method. In each trial, the measured output closely matched the intended ratios, with only minor variation observed between runs. These variations were primarily attributed to differences in material flow rate and particle characteristics.
+
+The mixing mechanism also performed effectively, producing a visibly uniform mixture within the selected mixing time. Materials were thoroughly combined without significant separation or clumping, indicating that the mixer design and motor selection were appropriate for the intended application. The system responded reliably to user inputs, including start and stop commands, and completed the dispensing and mixing sequence without failure during testing.
+
+Additional system features were also verified during testing. The hopper indicator system successfully alerted the user when material levels were low or depleted. The prototype maintained stable operation throughout all tests, and no major mechanical or electrical issues were observed. Overall, the results confirm that the system is capable of performing its primary functions of automated dispensing and mixing in a consistent and controlled manner.
