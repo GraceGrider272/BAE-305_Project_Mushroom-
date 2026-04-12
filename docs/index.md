@@ -6,4 +6,3 @@ This is the index for the project documentation.
 - [Report](report.md)
 - [Hardware](hardware.md)
 - [Software](software.md)
-- [Results](results.md)
