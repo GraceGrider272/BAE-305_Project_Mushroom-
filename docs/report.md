@@ -1,10 +1,6 @@
+<img width="440" height="115" alt="UK logo" src="https://github.com/user-attachments/assets/4eba2229-e527-418e-93f0-4ab45be4d9b1" /> 
+
 # Project Mushroom Report
-
-**Note to Team: Report Status and Next Steps**
-
-The majority of the report has been completed and structured according to the project rubric. At this stage, several sections (particularly Testing Results and Test Results Discussion) include placeholder language based on expected system performance.
-
-Once physical testing of the prototype is completed, these sections will need to be reviewed and updated with actual measured data, including quantitative results (e.g., ratios, percent error, timing) and any observed system behaviors. Additionally, figures, tables, and any supporting documentation (e.g., code, schematics, or photos of the final build) should be added or revised to reflect the finalized system.
 
 ## Summary
 
@@ -33,7 +29,7 @@ During operation, the user specifies the desired media ratios through a control 
 </figure>
 
 
-The mixing mechanism then blends the materials for a specified duration, which the user can adjust based on the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in **Figure 3 (Mechanical Drawing of Mixer Assembly)**. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in **Figure 4 (Detailed Components Diagram)**.
+The mixing mechanism then blends the materials for a specified duration, which the user can adjust based on the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in **Figure 3-whatever (Mechanical Drawing of Mixer Assembly)**. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in Hardware.
 
 Overall, the prototype satisfies key functional requirements: accurate dispensing, automated operation, and user-friendly control, while remaining compact and appropriate for small-scale testing and demonstration. Despite its simplified form, the model effectively captures the core functionality of a full-scale automated mixer and provides a solid foundation for future enhancements, including hydration integration and additional sensing capabilities. 
 
