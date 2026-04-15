@@ -18,6 +18,11 @@ The resulting system satisfies key design constraints such as affordability, com
 
 The automated mushroom media mixer is a compact system composed of multiple hoppers, a dispensing mechanism, a mixing chamber, and a user control interface. Each hopper holds a different media type—for example, soy hulls or wood pellets—and is connected to electronically controlled valves that regulate material flow into the system. In a full-scale, real-world application, the design would also incorporate a water input with a pressure-regulated source to hydrate the media during mixing. For this project, however, the team implemented a small-scale prototype focused on accurate dispensing and mixing of dry materials. The overall system layout, including hopper placement, valve configuration, and mixing chamber design, is shown in **Figure 1 (System Schematic/Engineering Drawing)**.
 
+<figure>
+
+**Figure 1:System Schematic**
+</figure>
+
 During operation, the user specifies the desired media ratios through a control interface. Once started, the system automatically dispenses the appropriate quantities of each material from the hoppers into the mixing chamber. Dispensing is governed by programmed logic that controls valve timing and sequencing to achieve the target ratios. The control logic and overall system operation are summarized in **Figure 2 (Control Flow Diagram)**, and the corresponding implementation is provided in Appendix A (Control Code). Although the current prototype does not include the hydration component, the control architecture is designed so that water integration can be added in a future revision without major redesign.
 
 The mixing mechanism then blends the materials for a specified duration, which the user can adjust based on the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in **Figure 3 (Mechanical Drawing of Mixer Assembly)**. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in **Figure 4 (Detailed Components Diagram)**.
