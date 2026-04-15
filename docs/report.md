@@ -16,14 +16,22 @@ The resulting system satisfies key design constraints such as affordability, com
 
 ## Desgin Description
 
-The automated mushroom media mixer is a compact system composed of multiple hoppers, a dispensing mechanism, a mixing chamber, and a user control interface. Each hopper holds a different media type—for example, soy hulls or wood pellets—and is connected to electronically controlled valves that regulate material flow into the system. In a full-scale, real-world application, the design would also incorporate a water input with a pressure-regulated source to hydrate the media during mixing. For this project, however, the team implemented a small-scale prototype focused on accurate dispensing and mixing of dry materials. The overall system layout, including hopper placement, valve configuration, and mixing chamber design, is shown in **Figure 1 (System Schematic/Engineering Drawing)**.
+The automated mushroom media mixer is a compact system composed of multiple hoppers, a dispensing mechanism, a mixing chamber, and a user control interface. Each hopper holds a different media type—for example, soy hulls or wood pellets—and is connected to electronically controlled valves that regulate material flow into the system. In a full-scale, real-world application, the design would also incorporate a water input with a pressure-regulated source to hydrate the media during mixing. For this project, however, the team implemented a small-scale prototype focused on accurate dispensing and mixing of dry materials. The overall system layout, including hopper placement, valve configuration, and mixing chamber design, is shown in Figure 1.
 
 <figure>
-
-**Figure 1:System Schematic**
+<img width="792" height="612" alt="Project Mushroom" src="https://github.com/user-attachments/assets/7045114c-b8fb-4b68-adfa-b53ccd253d81" />
+  
+*Figure 1: System Schematic*
 </figure>
 
-During operation, the user specifies the desired media ratios through a control interface. Once started, the system automatically dispenses the appropriate quantities of each material from the hoppers into the mixing chamber. Dispensing is governed by programmed logic that controls valve timing and sequencing to achieve the target ratios. The control logic and overall system operation are summarized in **Figure 2 (Control Flow Diagram)**, and the corresponding implementation is provided in Appendix A (Control Code). Although the current prototype does not include the hydration component, the control architecture is designed so that water integration can be added in a future revision without major redesign.
+During operation, the user specifies the desired media ratios through a control interface. Once started, the system automatically dispenses the appropriate quantities of each material from the hoppers into the mixing chamber. Dispensing is governed by programmed logic that controls valve timing and sequencing to achieve the target ratios. The control logic and overall system operation are summarized in Figure 2, and the corresponding implementation is provided in Appendix A (Control Code). Although the current prototype does not include the hydration component, the control architecture is designed so that water integration can be added in a future revision without major redesign.
+
+<figure>
+<img width="526" height="531" alt="Screenshot 2026-04-15 at 4 13 11 PM" src="https://github.com/user-attachments/assets/b3ca6c69-238f-478c-b314-fd4719e12f12" />
+
+*Figure 2: Control Flow Diagram*
+</figure>
+
 
 The mixing mechanism then blends the materials for a specified duration, which the user can adjust based on the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in **Figure 3 (Mechanical Drawing of Mixer Assembly)**. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in **Figure 4 (Detailed Components Diagram)**.
 
