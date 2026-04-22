@@ -15,4 +15,5 @@ Once physical testing of the prototype is completed, these sections will need to
 - [Report](report.md)
 - [Hardware](hardware.md)
 - [Software](software.md)
-- [Appendix A](Code file name)
+- [Appendix A](final_code)
+  
