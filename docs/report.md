@@ -20,7 +20,7 @@ The automated mushroom media mixer is a compact system composed of multiple hopp
 *Figure 1: System Schematic*
 </figure>
 
-During operation, the user specifies the desired media ratios through a control interface. Once started, the system automatically dispenses the appropriate quantities of each material from the hoppers into the mixing chamber. Dispensing is governed by programmed logic that controls valve timing and sequencing to achieve the target ratios. The control logic and overall system operation are summarized in Figure 2, and the corresponding implementation is provided in Appendix A (Control Code). Although the current prototype does not include the hydration component, the control architecture is designed so that water integration can be added in a future revision without major redesign.
+During operation, the user specifies the desired media ratios through a control interface. Once started, the system automatically dispenses the appropriate quantities of each material from the hoppers into the mixing chamber. Dispensing is governed by programmed logic that controls valve timing and sequencing to achieve the target ratios. The control logic and overall system operation are summarized in Figure 2, and the corresponding implementation is provided in [Appendix A](final_code) (Control Code). Although the current prototype does not include the hydration component, the control architecture is designed so that water integration can be added in a future revision without major redesign.
 
 <figure>
 <img width="526" height="531" alt="Screenshot 2026-04-15 at 4 13 11 PM" src="https://github.com/user-attachments/assets/b3ca6c69-238f-478c-b314-fd4719e12f12" />
