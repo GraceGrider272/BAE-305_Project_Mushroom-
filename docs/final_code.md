@@ -1,3 +1,4 @@
+```cpp
 #include <Wire.h>          // Include I2C communication library
 #include <Servo.h>         // Include Servo motor control library
 #include <VL53L0X.h>       // Include library for the Time-of-Flight distance sensors
@@ -229,3 +230,4 @@ void updateServos() {
     displayMenu();              // Re-prompt user
   }
 }
+```
