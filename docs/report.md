@@ -29,7 +29,14 @@ During operation, the user specifies the desired media ratios through a control 
 </figure>
 
 
-The mixing mechanism then blends the materials for a specified duration, which the user can adjust based on the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in **Figure 3-whatever (Mechanical Drawing of Mixer Assembly)**. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in [Hardware](hardware.md).
+The mixing mechanism then blends the materials for a specified duration, which the user can adjust based on the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in **Figure 3**. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in [Hardware](hardware.md).
+
+<figure>
+<img width="681" height="1045" alt="Screenshot 2026-04-24 141252" src="https://github.com/user-attachments/assets/d66a048f-60a3-4380-acc0-23f6786634a2" />
+  
+*Figure 3: Drawing of Mixer Assembly*
+</figure>
+
 
 Overall, the prototype satisfies key functional requirements: accurate dispensing, automated operation, and user-friendly control, while remaining compact and appropriate for small-scale testing and demonstration. Despite its simplified form, the model effectively captures the core functionality of a full-scale automated mixer and provides a solid foundation for future enhancements, including hydration integration and additional sensing capabilities. 
 
