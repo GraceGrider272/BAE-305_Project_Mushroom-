@@ -30,7 +30,7 @@ During operation, the user specifies the desired media ratios via a control inte
 </figure>
 
 
-The mixing mechanism then blends the materials for a user-adjustable duration, tailored to the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in **Figure 3**. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in [Hardware](hardware.md).
+The mixing mechanism then blends the materials for a user-adjustable duration, tailored to the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in Figure 3. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in [Hardware](hardware.md).
 
 <figure>
 <img width="681" height="1045" alt="Screenshot 2026-04-24 141252" src="https://github.com/user-attachments/assets/d66a048f-60a3-4380-acc0-23f6786634a2" />
