@@ -18,25 +18,29 @@ The automated mushroom media mixer is a compact system comprising multiple hoppe
 <figure>
 <img width="792" height="612" alt="Project Mushroom" src="https://github.com/user-attachments/assets/7045114c-b8fb-4b68-adfa-b53ccd253d81" />
   
-*Figure 1: System Schematic*
 </figure>
+
+*Figure 1: System Schematic*
 
 During operation, the user specifies the desired media ratios via a control interface. Once started, the system automatically dispenses the appropriate quantities of each material from the hoppers into the mixing chamber. Dispensing is governed by programmed logic that controls valve timing and sequencing to achieve the target ratios. The control logic and overall system operation are summarized in Figure 2, and the corresponding implementation is provided in [Appendix A](final_code) (Control Code). Although the current prototype does not include the hydration component, the control architecture is designed to allow water integration in a future revision without major redesign.
 
 <figure>
 <img width="526" height="531" alt="Screenshot 2026-04-15 at 4 13 11 PM" src="https://github.com/user-attachments/assets/b3ca6c69-238f-478c-b314-fd4719e12f12" />
 
-*Figure 2: Control Flow Diagram*
+
 </figure>
 
+*Figure 2: Control Flow Diagram*
 
 The mixing mechanism then blends the materials for a user-adjustable duration, tailored to the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in Figure 3. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in [Hardware](hardware.md).
 
 <figure>
 <img width="681" height="1045" alt="Screenshot 2026-04-24 141252" src="https://github.com/user-attachments/assets/d66a048f-60a3-4380-acc0-23f6786634a2" />
   
-*Figure 3: Drawing of Mixer Assembly*
+
 </figure>
+
+*Figure 3: Drawing of Mixer Assembly*
 
 Overall, the prototype meets key functional requirements: accurate dispensing, automated operation, and user-friendly control, while remaining compact and suitable for small-scale testing and demonstration. Despite its simplified design, the model effectively captures the core functionality of a full-scale automated mixer and provides a solid foundation for future enhancements, including hydration integration and additional sensing capabilities. 
 
