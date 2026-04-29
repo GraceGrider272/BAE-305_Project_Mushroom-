@@ -11,7 +11,7 @@ The proposed design incorporates multiple hoppers for storing different media ty
 The resulting system meets key design constraints, including affordability, compact size, and safe operation, while maintaining high accuracy in media preparation. Overall, the project delivers a practical, scalable solution that improves efficiency and consistency in mushroom farming operations.
 
 
-## Desgin Description
+## Design Description
 
 The automated mushroom media mixer is a compact system comprising multiple hoppers, a dispensing mechanism, a mixing chamber, and a user control interface. Each hopper holds a different media type—for example, soy hulls or wood pellets—and is connected to electronically controlled valves that regulate material flow into the system. In a full-scale, real-world application, the design would also include a water input with a pressure-regulated source to hydrate the media during mixing. For this project, however, the team implemented a small-scale prototype focused on accurate dispensing and mixing of dry materials. The overall system layout, including hopper placement, valve configuration, and mixing chamber design, is shown in Figure 1.
 
@@ -35,14 +35,14 @@ During operation, the user specifies the desired media ratios via a control inte
 The mixing mechanism then blends the materials for a user-adjustable duration, tailored to the media being prepared. The mixing system design—including motor selection and gate configuration—is detailed in Figure 3. Additional system features include empty-hopper indicators, safety measures such as enclosed moving parts, and the ability to disassemble key components for cleaning, as highlighted in [Hardware](hardware.md).
 
 <figure>
-<img width="681" height="1045" alt="Screenshot 2026-04-24 141252" src="https://github.com/user-attachments/assets/d66a048f-60a3-4380-acc0-23f6786634a2" />
-  
+<img width="1666" height="2283" alt="Screenshot_29-4-2026_101824_" src="https://github.com/user-attachments/assets/5848f07c-0d65-4b12-84d9-d45d933833ad" />
+
 
 </figure>
 
 *Figure 3: Drawing of Mixer Assembly*
 
-Overall, the prototype meets key functional requirements: accurate dispensing, automated operation, and user-friendly control, while remaining compact and suitable for small-scale testing and demonstration. Despite its simplified design, the model effectively captures the core functionality of a full-scale automated mixer and provides a solid foundation for future enhancements, including hydration integration and additional sensing capabilities. 
+Overall, the prototype meets key functional requirements: accurate dispensing, automated operation, and user-friendly control, while remaining compact and suitable for small-scale testing and demonstration. Despite its simplified design, the model effectively captures the core functionality of a full-scale automated mixer and provides a solid foundation for future enhancements, including hydration integration and additional sensing capabilities. The files for each part are included in the parts folder BAE-305_Project_Mushroom/docs/Parts.
 
 ## Testing Descriptions 
 
