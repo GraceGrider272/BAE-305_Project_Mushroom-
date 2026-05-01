@@ -6,7 +6,7 @@
 
 The goal of this project was to design and develop a small-scale automated media mixer to help mushroom farmers efficiently prepare growing media. Traditional manual mixing is time-consuming and inconsistent, motivating the need for a system that improves accuracy, reduces labor, and increases convenience for small-scale operations.
 
-The proposed design incorporates multiple hoppers for storing different media types, electronically controlled valves for dispensing precise ratios, and a mixing system that combines and hydrates the media before discharging it into a growing bag. During development, the team evaluated several design approaches, including weight- and volume-based measurement systems, before selecting a final configuration that allows users to choose media ratios, automatically dispense materials, and control the mixing process.
+The proposed design incorporates multiple hoppers for storing different media types, electronically controlled valves for dispensing precise ratios, and a mixing system that combines and hydrates the media before discharging it into a growing bag. During development, the team evaluated several design approaches, including mass and volume-based measurement systems, before selecting a final configuration that allows users to choose media ratios, automatically dispense materials, and control the mixing process.
 
 The resulting system meets key design constraints, including affordability, compact size, and safe operation, while maintaining high accuracy in media preparation. Overall, the project delivers a practical, scalable solution that improves efficiency and consistency in mushroom farming operations.
 
@@ -64,7 +64,7 @@ Several design alternatives were evaluated for the automated mushroom media mixe
 
 A weight-based system offered the highest potential accuracy because it directly measures the mass of dispensed material. However, implementing this approach would require load cells, signal conditioning, and more advanced programming, significantly increasing both system complexity and cost. Given the project’s goal of developing a compact, affordable prototype for small-scale use, this option was not practical within the available resources and time constraints.
 
-The time-of-flight sensor approach was also considered as a non-contact method for monitoring material levels. While this method could provide additional feedback on hopper contents, it introduced potential reliability issues due to dust, irregular material surfaces, and sensor interference. Additionally, the increased cost and integration complexity made it less suitable for a simple prototype system.
+The time-of-flight sensor approach was also considered as a non-contact method for monitoring material levels. While this method could provide additional feedback on hopper contents, it introduced potential reliability issues due to dust, irregular material surfaces, and sensor interference. Additionally, the integration complexity made it less suitable for a simple prototype system.
 
 The final design used a time-based volumetric dispensing method, in which electronically controlled gates regulate material flow based on programmed time intervals. This decision was strongly supported by observations during testing. Early material trials revealed that flow behavior varied significantly with material size and properties, reinforcing the importance of a simple, adaptable control method. The time-based system allowed the team to easily adjust gate timing to accommodate these variations without additional hardware.
 
