@@ -14,11 +14,11 @@ The prototype system consists of the following primary hardware components:
 
 * Dispensing Mechanism (Valves/Gates): Electronically controlled gates or valves regulate the flow of material from each hopper into the mixing chamber.
 
-* User Input Controls: Buttons or switches allow the user to start/stop the system and select mixing settings.
+* User Input Controls: Computer screen menu allows the user to start/stop the system and select mixing settings.
   
-* Indicator System: LEDs or similar indicators alert the user when a hopper is empty or when the system is active.
+* Indicator System: The computer screen will print an alert message that notifies the user when a hopper is empty or when the system is active.
   
-* Power Supply: Standard wall outlet power (with appropriate voltage regulation for components).
+* Power Supply: 5V required, can easily be plugged into a computer's USB port.
 
 ### Optional / Future Components (Full-Scale System)
 The prototype does not yet include all features of a full-scale system. The following components are planned for future integration:
