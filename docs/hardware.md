@@ -25,7 +25,7 @@ The prototype does not yet include all features of a full-scale system. The foll
 
 * Water Delivery System: A pressure-regulated water source for hydrating media during mixing.
   
-* Advanced Sensors: Load cells or level sensors for improved accuracy in measuring material quantities.
+* Different Media Handling: Adjustable calibration settings for different media types.
 
 ## System Integration
 
