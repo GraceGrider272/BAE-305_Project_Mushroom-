@@ -176,4 +176,11 @@ void handleMenu() {
   if (!modeSelected && Serial.available()) {    // If waiting for input and data is in buffer
     char c = Serial.read();                     // Read the incoming character
     if (c == '1') { jitterCount1 = 5; jitterCount2 = 5; modeSelected = true; }      // Set mode 1
-    else if (c == '2') { jitterCount1 =
+    else if (c == '2') { jitterCount1 = 3; jitterCount2 = 5; modeSelected = true; } // Set mode 2
+    else if (c == '3') { jitterCount1 = 5; jitterCount2 = 3; modeSelected = true; } // Set mode 3
+    else if (c == '4') { shakeGatesManual(); return; }                              // Run manual shake
+    else { return; }                                                                // Ignore other keys
+
+    Serial.println(F("Mode selected. System armed.")); // Confirm selection to user
+  }
+}
